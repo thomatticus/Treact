@@ -354,6 +354,204 @@ ul {
   font-size: 24px;
 }
 
+/* ========================================
+   MOBILE MENU BUTTON
+======================================== */
+
+.mobile-menu-button {
+  display: none;
+
+  padding: 8px;
+
+  border: 0;
+
+  background: transparent;
+  color: #243e63;
+
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   MOBILE MENU CONTAINER
+======================================== */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-menu--open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/* ========================================
+   MOBILE MENU OVERLAY
+======================================== */
+
+.mobile-menu__overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(15, 23, 42, 0.2);
+
+  opacity: 0;
+
+  transition: opacity 300ms ease;
+}
+
+.mobile-menu--open .mobile-menu__overlay {
+  opacity: 1;
+}
+
+
+/* ========================================
+   MOBILE MENU PANEL
+======================================== */
+
+.mobile-menu__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: min(320px, 82vw);
+  height: 100%;
+
+  padding: 72px 32px 40px;
+
+  background: #ffffff;
+
+  box-shadow: 12px 0 32px rgba(15, 23, 42, 0.15);
+
+  transform: translateX(-100%);
+
+  transition: transform 300ms ease;
+}
+
+.mobile-menu--open .mobile-menu__panel {
+  transform: translateX(0);
+}
+
+
+/* ========================================
+   MOBILE MENU CLOSE BUTTON
+======================================== */
+
+.mobile-menu__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  background: transparent;
+  color: #243e63;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   MOBILE MENU LINKS
+======================================== */
+
+.mobile-menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.mobile-menu__link {
+  position: relative;
+
+  padding-bottom: 5px;
+
+  color: #243e63;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mobile-menu__link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 2px;
+
+  background: #6415ff;
+
+  content: "";
+
+  opacity: 0;
+  transform: scaleX(0);
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.mobile-menu__link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+
+/* ========================================
+   MOBILE SIGN-UP BUTTON
+======================================== */
+
+.mobile-menu__signup {
+  min-width: 120px;
+  min-height: 44px;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9999px;
+
+  background: #6415ff;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: background-color 200ms ease;
+}
+
+.mobile-menu__signup:hover {
+  background: #5011cc;
+}
+
+
+/* ========================================
+   PREVENT PAGE SCROLL
+======================================== */
+
+body.menu-open {
+  overflow: hidden;
+}
 
 /* ========================================
    HERO
@@ -407,12 +605,13 @@ ul {
 }
 
 .hero__description {
-  max-width: 500px;
+  margin: 32px 0px;
 
   color: var(--heading);
 
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.5;
+  width: 512px; 
 }
 
 .hero__form {
@@ -434,7 +633,7 @@ ul {
 
   color: var(--heading);
 
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 
   transition: border-color 250ms ease;
@@ -462,7 +661,7 @@ ul {
   background: var(--purple);
   color: #ffffff;
 
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
 
   transition: background-color 250ms ease;
@@ -487,7 +686,7 @@ ul {
 
 .hero__customers-image {
   width: 100%;
-  max-width: 390px;
+  max-width: 768px;
   margin-top: 16px;
 
   opacity: 0.5;
@@ -1388,7 +1587,7 @@ pointer-events: none;
 .link a {
   position: relative;
 
-  color: #ffffff;
+  color: rgb(247, 250, 252);
 
   font-size: 14px;
   line-height: 1.4;
@@ -1407,7 +1606,7 @@ pointer-events: none;
 
   height: 2px;
 
-  background: #ffffff;
+  background: rgb(247, 250, 252);
 
   content: "";
 
@@ -1445,11 +1644,11 @@ pointer-events: none;
   display: flex;
   align-items: center;
   gap: 12px;
-
-  color: #ffffff;
-
-  font-size: 24px;
-  font-weight: 800;
+  color: rgb(247, 250, 252);
+  font-size: 20px;
+  font-weight: 900;
+  margin-left: 8px;
+  letter-spacing: 0.05em;
 }
 
 .footer__logo-image {
@@ -1458,10 +1657,10 @@ pointer-events: none;
 }
 
 .footer__copyright {
-  color: rgba(255, 255, 255, 0.8);
-
-  font-size: 15px;
+  color: rgba(203, 213, 224);
+  font-size: 20px;
   font-weight: 500;
+  height: 20px;
 }
 
 .footer__socials {
@@ -1471,8 +1670,8 @@ pointer-events: none;
 }
 
 .footer__social {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
 
   display: flex;
   align-items: center;
@@ -1927,5 +2126,18 @@ pointer-events: none;
     height: 122px;
 
     opacity: 0.65;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

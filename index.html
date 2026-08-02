@@ -70,6 +70,69 @@
     </header>
 
     <main>
+
+<!-- ========================================
+     MOBILE MENU BUTTON
+========================================= -->
+
+<button
+  class="mobile-menu-button"
+  type="button"
+  aria-label="Open navigation menu"
+  aria-controls="mobile-menu"
+  aria-expanded="false"
+>
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+
+<!-- ========================================
+     MOBILE MENU
+========================================= -->
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__overlay"></div>
+
+  <nav
+    class="mobile-menu__panel"
+    aria-label="Mobile navigation"
+  >
+    <button
+      class="mobile-menu__close"
+      type="button"
+      aria-label="Close navigation menu"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="mobile-menu__links">
+      <a class="mobile-menu__link" href="#features">
+        About
+      </a>
+
+      <a class="mobile-menu__link" href="#quality">
+        Blog
+      </a>
+
+      <a class="mobile-menu__link" href="#pricing">
+        Pricing
+      </a>
+
+      <a class="mobile-menu__link" href="#contact">
+        Contact Us
+      </a>
+
+      <a class="mobile-menu__link" href="#">
+        Login
+      </a>
+
+      <a class="mobile-menu__signup" href="#">
+        Sign Up
+      </a>
+    </div>
+  </nav>
+</div>
+
       <!-- ========================================
            HERO
       ========================================= -->
